@@ -60,19 +60,24 @@ function addSheet() {
 
     field.appendChild(box.container);
 }
-function outputData(){
+function outputData() {
 
-    var content='';
+    var content = '';
 
-    var containers=document.querySelectorAll('.container');
+    var containers = document.querySelectorAll('.container');
 
-    containers.forEach((container)=>{
-        var text=container.firstChild.value;
-        var num=container.firstChild.nextSibling.value;
+    containers.forEach((container) => {
 
-        content+=`"${text}":"${num}"`;
+        var text = container.firstChild.value;
+
+        var num = container.firstChild.nextSibling.value;
+
+        content += `"${text}":"${num}",`;
     })
 
-    document.getElementById('outPut').innerHTML='{'+content+'}';
+    var str = content;
+    var newStr = str.slice(0, -1);
+
+    document.getElementById('outPut').innerHTML = '{' + newStr + '}';
 
 }
